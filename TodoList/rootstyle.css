@@ -1,0 +1,50 @@
+ :root {
+      --bg-dark: linear-gradient(135deg, #1a0033, #4a00a3, #6e40ff);
+      --bg-light: linear-gradient(135deg, #e0c3fc, #b19cd9, #c8a2c8);
+      --card-dark: rgba(30, 30, 60, 0.92);
+      --card-light: rgba(255, 255, 255, 0.95);
+      --text-dark: #e2e8f0;
+      --text-light: #1a0033;
+      --muted-dark: #94a3b8;
+      --muted-light: #6b46c1;
+      --border-dark: rgba(255, 255, 255, 0.2);
+      --border-light: rgba(0, 0, 0, 0.12);
+      --accent: #a855f7;
+      --success: #10b981;
+      --danger: #ef4444;
+      
+      /* Base font size for scaling */
+      --base-font-size: 16px;
+    }
+
+    [data-theme="light"] {
+      --bg: var(--bg-light);
+      --card: var(--card-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --border: var(--border-light);
+    }
+
+    [data-theme="dark"] {
+      --bg: var(--bg-dark);
+      --card: var(--card-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --border: var(--border-dark);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.5s ease;
+      overflow: auto;
+      position: relative;
+      font-size: var(--base-font-size);
+    }

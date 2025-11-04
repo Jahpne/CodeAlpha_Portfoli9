@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ToDo Pro</title>
+    <link href="index.html">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rootstyle.css"> 
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body data-theme="dark">
+  <div class="container">
+    <div class="app-layout">
+      <!-- Left Panel - Stats & Controls -->
+      <div class="stats-panel">
+        <div class="card">
+          <header>
+           <h1>ToDo Pro</h1>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+          </header>
+
+          <div class="progress-wrapper">
+            <div class="progress-ring">
+              <svg><circle class="bg"></circle><circle class="fg"></circle></svg>
+            </div>
+            <div class="counter"><span id="done">0</span> / <span id="total">0</span></div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <input type="text" id="newTask" placeholder="Add a new task..." autocomplete="off">
+              <input type="date" id="dueDate">
+              <input type="text" class="tag-input" id="tagInput" placeholder="Tag" list="tagSuggestions">
+              <datalist id="tagSuggestions"></datalist>
+              <button class="add" id="addBtn">+ Add Task</button>
+            </div>
+          </div>
+
+          <div class="filter" id="filter">
+            <button data-tag="" class="active">All</button>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="card stats-card">
+          <h2>Task Statistics</h2>
+          <ul class="stats-list" id="statsList">
+            <li class="stats-item">
+              <span class="stats-label">Total Tasks</span>
+              <span class="stats-value" id="statsTotal">0</span>
+            </li>
+            <li class="stats-item">
+              <span class="stats-label">Completed</span>
+              <span class="stats-value" id="statsCompleted">0</span>
+            </li>
+            <li class="stats-item">
+              <span class="stats-label">Pending</span>
+              <span class="stats-value" id="statsPending">0</span>
+            </li>
+            <li class="stats-item">
+              <span class="stats-label">Completion Rate</span>
+              <span class="stats-value" id="statsRate">0%</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Tags Overview</h2>
+          <div class="tag-stats" id="tagStats">
+            <p style="color: var(--muted); font-size: 1rem;">No tags yet</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Task List -->
+      <div class="card">
+        <ul class="task-list" id="taskList"></ul>
+        <p class="empty" id="emptyMsg" hidden>No tasks yet – add one above!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="script.js"></script>
+    </body>
+</html>
