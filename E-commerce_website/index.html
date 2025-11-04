@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - E-Commerce Mobile App</title>
+    <link href="index.html">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rootstyle.css">
+   <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Authentication Screen -->
+        <div class="screen auth-screen active" id="auth-screen">
+            <div class="auth-header">
+                <h1 class="auth-title">ShopEase</h1>
+                <p class="auth-subtitle">Sign in to your account</p>
+            </div>
+            <div class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="login-password" placeholder="Enter your password">
+                </div>
+                <a href="e-commerce.html" > <button class="auth-btn" id="login-btn">Sign In</button></a>
+                <div class="auth-switch">
+                    <p>Don't have an account? <span class="auth-link" id="show-signup">Sign Up</span></p>
+                </div>
+            </div>
+            <div class="auth-form" id="signup-form" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="signup-name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="signup-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="signup-password" placeholder="Create a password">
+                </div>
+                <button class="auth-btn" id="signup-btn">Create Account</button>
+                <div class="auth-switch">
+                    <p>Already have an account? <span class="auth-link" id="show-login">Sign In</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Screen -->
+        <div class="screen" id="home-screen">
+            <div class="app-header">
+                <div class="status-bar">
+                    <span>9:41</span>
+                    <span>
+                        <i class="fas fa-signal"></i>
+                        <i class="fas fa-wifi"></i>
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </span>
+                </div>
+                <div class="header-content">
+                    <h1 class="app-title">ShopEase</h1>
+                    <div class="header-actions">
+                        <i class="fas fa-shopping-cart header-icon" id="cart-icon"></i>
+                        <i class="fas fa-bell header-icon" id="notifications-icon"></i>
+                    </div>
+                </div>
+                <div class="search-bar" id="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products...">
+                </div>
+            </div>
+
+            <div class="categories">
+                <div class="category active">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <span class="category-name">Electronics</span>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <span class="category-name">Fashion</span>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <span class="category-name">Home</span>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <span class="category-name">Food</span>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <span class="category-name">Sports</span>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product="1">
+                    <div class="product-image">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span class="product-badge">Sale</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Smartphone X Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$899</span>
+                            <span class="original-price">$999</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8 (124)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="2">
+                    <div class="product-image">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Wireless Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.5 (89)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="3">
+                    <div class="product-image">
+                        <i class="fas fa-laptop"></i>
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Ultrabook Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$1299</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (67)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="4">
+                    <div class="product-image">
+                        <i class="fas fa-smartwatch"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Smart Watch 3</h3>
+                        <div class="product-price">
+                            <span class="current-price">$299</span>
+                            <span class="original-price">$349</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.7 (156)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Popular This Week</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product="5">
+                    <div class="product-image">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Tablet Mini</h3>
+                        <div class="product-price">
+                            <span class="current-price">$499</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.6 (92)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="6">
+                    <div class="product-image">
+                        <i class="fas fa-camera"></i>
+                        <span class="product-badge">Hot</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">DSLR Camera</h3>
+                        <div class="product-price">
+                            <span class="current-price">$799</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8 (113)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Screen -->
+        <div class="screen search-screen" id="search-screen">
+            <div class="search-header">
+                <div class="header-content">
+                    <div class="modal-close" id="search-close">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <h2 class="app-title">Search</h2>
+                    <div></div>
+                </div>
+                <div class="search-input-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" id="search-input" placeholder="Search products...">
+                </div>
+            </div>
+            <div class="search-results" id="search-results">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+
+        <!-- Cart Screen -->
+        <div class="screen cart-screen" id="cart-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <div class="modal-close" id="cart-close">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <h2 class="app-title">Your Cart</h2>
+                    <div></div>
+                </div>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be added dynamically -->
+                <div class="empty-cart" id="empty-cart">
+                    <p style="text-align: center; padding: 2rem; color: var(--gray);">
+                        Your cart is empty
+                    </p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+
+        <!-- Orders Screen -->
+        <div class="screen orders-screen" id="orders-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <div class="modal-close" id="orders-close">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <h2 class="app-title">Your Orders</h2>
+                    <div></div>
+                </div>
+            </div>
+            <div class="orders-list" id="orders-list">
+                <div class="order-item">
+                    <div class="order-header">
+                        <span class="order-id">Order #12345</span>
+                        <span class="order-status status-delivered">Delivered</span>
+              <span class="order-status status-delivered">Delivered</span>
+                    </div>
+                    <div class="order-date">Placed on June 15, 2023</div>
+                    <div class="order-total">Total: $1298.00</div>
+                </div>
+                <div class="order-item">
+                    <div class="order-header">
+                        <span class="order-id">Order #12344</span>
+                        <span class="order-status status-shipping">Shipping</span>
+                    </div>
+                    <div class="order-date">Placed on June 10, 2023</div>
+                    <div class="order-total">Total: $499.00</div>
+                </div>
+                <div class="order-item">
+                    <div class="order-header">
+                        <span class="order-id">Order #12343</span>
+                        <span class="order-status status-processing">Processing</span>
+                    </div>
+                    <div class="order-date">Placed on June 5, 2023</div>
+                    <div class="order-total">Total: $199.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen profile-screen" id="profile-screen">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="profile-name" id="profile-name">User Name</h2>
+                <p class="profile-email" id="profile-email">user@example.com</p>
+            </div>
+            <div class="profile-menu">
+                <div class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="menu-text">
+                        <div class="menu-title">Edit Profile</div>
+                        <div class="menu-desc">Update your personal information</div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="menu-text">
+                        <div class="menu-title">Addresses</div>
+                        <div class="menu-desc">Manage your delivery addresses</div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="menu-text">
+                        <div class="menu-title">Payment Methods</div>
+                        <div class="menu-desc">Add or remove payment options</div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="menu-text">
+                        <div class="menu-title">Help & Support</div>
+                        <div class="menu-desc">Get help with your account</div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <button class="logout-btn" id="logout-btn">Log Out</button>
+            </div>
+        </div>
+
+        <!-- Notifications Screen -->
+        <div class="screen notifications-screen" id="notifications-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <div class="modal-close" id="notifications-close">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <h2 class="app-title">Notifications</h2>
+                    <div></div>
+                </div>
+            </div>
+            <div class="notifications-list">
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Order Shipped</div>
+                        <div class="notification-desc">Your order #12344 has been shipped</div>
+                        <div class="notification-time">2 hours ago</div>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Special Offer</div>
+                        <div class="notification-desc">Get 20% off on electronics this weekend</div>
+                        <div class="notification-time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Welcome to ShopEase</div>
+                        <div class="notification-desc">Thank you for creating an account with us</div>
+                        <div class="notification-time">3 days ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Modal -->
+        <div class="product-modal" id="product-modal">
+            <div class="modal-header">
+                <div class="modal-close" id="modal-close">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <h2>Product Details</h2>
+                <div></div> <!-- Empty div for spacing -->
+            </div>
+            <div class="modal-image">
+                <i class="fas fa-mobile-alt" id="modal-product-icon"></i>
+            </div>
+            <div class="modal-content">
+                <h2 class="modal-title" id="modal-product-name">Product Name</h2>
+                <div class="modal-price" id="modal-product-price">$0</div>
+                <div class="modal-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.5 (89 reviews)</span>
+                </div>
+                <p class="modal-description" id="modal-product-description">
+                    This is a detailed description of the product. It includes all the features, specifications, and benefits that customers would want to know before making a purchase decision.
+                </p>
+                <div class="quantity-selector">
+                    <span>Quantity:</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" id="decrease-qty">-</button>
+                        <span class="quantity-value" id="quantity-value">1</span>
+                        <button class="quantity-btn" id="increase-qty">+</button>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="buy-now">Buy Now</button>
+                    <button class="add-to-wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-screen="home-screen">
+                <i class="fas fa-home nav-icon"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-screen="search-screen">
+                <i class="fas fa-search nav-icon"></i>
+                <span>Search</span>
+            </div>
+            <div class="nav-item" data-screen="orders-screen">
+                <i class="fas fa-shopping-bag nav-icon"></i>
+                <span>Orders</span>
+            </div>
+            <div class="nav-item" data-screen="profile-screen">
+                <i class="fas fa-user nav-icon"></i>
+                <span>Profile</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="make.js">
+       
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
