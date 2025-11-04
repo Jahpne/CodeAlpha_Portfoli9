@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPurple - Ultimate Fitness Tracker</title>
+     <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fitnessstyleroot.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="fitness-app">
+        <!-- Home Screen -->
+        <div class="screen active" id="home-screen">
+            <!-- Header -->
+            <div class="app-header">
+                <div class="header-content">
+                    <h1 class="app-title" id="app-title">FitPurple</h1>
+                    <div class="header-actions">
+                        <i class="fas fa-bell header-icon" id="notifications-icon"></i>
+                        <i class="fas fa-user header-icon" id="profile-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="steps-value">8,245</span>
+                        <span class="stat-label">STEPS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="calories-value">1,280</span>
+                        <span class="stat-label">CALORIES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="distance-value">6.2</span>
+                        <span class="stat-label">KM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="app-content">
+                <!-- Activity Rings -->
+                <div class="activity-rings">
+                    <div class="ring-container ring-1">
+                        <div class="ring-bg"></div>
+                        <div class="ring-progress" id="move-ring"></div>
+                      <div class="ring-center">
+                            <span class="ring-value" id="move-value">75%</span>
+                            <span class="ring-label">MOVE</span>
+                        </div>
+                    </div>
+                    <div class="ring-container ring-2">
+                        <div class="ring-bg"></div>
+                        <div class="ring-progress" id="exercise-ring"></div>
+                        <div class="ring-center">
+                            <span class="ring-value" id="exercise-value">60%</span>
+                            <span class="ring-label">EXERCISE</span>
+                        </div>
+                    </div>
+                    <div class="ring-container ring-3">
+                        <div class="ring-bg"></div>
+                        <div class="ring-progress" id="stand-ring"></div>
+                        <div class="ring-center">
+                            <span class="ring-value" id="stand-value">85%</span>
+                            <span class="ring-label">STAND</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card fade-in" id="heart-rate-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <span class="value" id="heart-rate-value">72</span>
+                        <span class="label">BPM</span>
+                    </div>
+                    <div class="stat-card fade-in" id="calories-card">
+                        <i class="fas fa-fire"></i>
+                        <span class="value" id="calories-card-value">1,280</span>
+                        <span class="label">CALORIES</span>
+                    </div>
+                    <div class="stat-card fade-in" id="steps-card">
+                        <i class="fas fa-walking"></i>
+                        <span class="value" id="steps-card-value">8,245</span>
+                        <span class="label">STEPS</span>
+                    </div>
+                    <div class="stat-card fade-in" id="sleep-card">
+                        <i class="fas fa-moon"></i>
+                        <span class="value" id="sleep-value">7.2</span>
+                        <span class="label">HOURS SLEPT</span>
+                    </div>
+                </div>
+
+                <!-- Workout Cards -->
+                <div class="section-title">
+                    <h2>Today's Workouts</h2>
+                    <span class="view-all" id="view-workouts">View All</span>
+                </div>
+
+                <div class="workout-cards">
+                    <div class="workout-card fade-in" data-workout="running">
+                        <i class="fas fa-running workout-icon"></i>
+                        <h3 class="workout-title">Morning Run</h3>
+                        <div class="workout-stats">
+                            <span>5.2 km</span>
+                            <span>32 min</span>
+                        </div>
+                    </div>
+                    <div class="workout-card fade-in" data-workout="strength">
+                        <i class="fas fa-dumbbell workout-icon"></i>
+                        <h3 class="workout-title">Strength</h3>
+                        <div class="workout-stats">
+                            <span>45 min</span>
+                            <span>320 cal</span>
+                        </div>
+                    </div>
+                    <div class="workout-card fade-in" data-workout="cycling">
+                        <i class="fas fa-bicycle workout-icon"></i>
+                        <h3 class="workout-title">Cycling</h3>
+                        <div class="workout-stats">
+                            <span>12.4 km</span>
+                            <span>48 min</span>
+                        </div>
+                    </div>
+                    <div class="workout-card fade-in" data-workout="swimming">
+                        <i class="fas fa-swimmer workout-icon"></i>
+                        <h3 class="workout-title">Swimming</h3>
+                        <div class="workout-stats">
+                            <span>30 laps</span>
+                            <span>40 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section fade-in">
+                    <div class="progress-header">
+                        <h3 class="progress-title">Weekly Goal</h3>
+                        <span id="weekly-goal-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="weekly-goal-bar"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span id="weekly-calories">4,800 / 6,400 calories</span>
+                        <span id="days-left">4 days left</span>
+                    </div>
+                </div>
+
+                <!-- Challenges -->
+                <div class="section-title">
+                    <h2>Active Challenges</h2>
+                    <span class="view-all" id="view-challenges">See All</span>
+                </div>
+
+                <div class="challenges">
+                    <div class="challenge-card fade-in" data-challenge="steps">
+                        <span class="challenge-badge">NEW</span>
+                        <h3 class="challenge-title">10K Steps Daily</h3>
+                        <p>Complete 7 days in a row</p>
+                        <div class="challenge-progress">
+                            <div class="challenge-fill" id="steps-challenge-bar"></div>
+                        </div>
+                        <span id="steps-challenge-text">4/7 days completed</span>
+                    </div>
+                    <div class="challenge-card fade-in" data-challenge="calories">
+                        <span class="challenge-badge">POPULAR</span>
+                        <h3 class="challenge-title">Burn 5000 Calories</h3>
+                        <p>Weekly calorie challenge</p>
+                        <div class="challenge-progress">
+                            <div class="challenge-fill" id="calories-challenge-bar"></div>
+                        </div>
+                        <span id="calories-challenge-text">4000/5000 calories</span>
+                    </div>
+                    <div class="challenge-card fade-in" data-challenge="yoga">
+                        <span class="challenge-badge">HARD</span>
+                        <h3 class="challenge-title">30 Day Yoga</h3>
+                        <p>Complete 30 yoga sessions</p>
+                        <div class="challenge-progress">
+                            <div class="challenge-fill" id="yoga-challenge-bar"></div>
+                        </div>
+                        <span id="yoga-challenge-text">12/30 sessions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Screen -->
+        <div class="screen" id="stats-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <h1 class="app-title">Statistics</h1>
+                    <div class="header-actions">
+                        <i class="fas fa-chart-line header-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-container">
+                <div class="section-title">
+                    <h2>Weekly Activity</h2>
+                    <span class="view-all" id="export-stats">Export</span>
+                </div>
+                
+                <div class="stat-chart" id="activity-chart">
+                    <!-- Chart bars will be generated by JavaScript -->
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <span class="value" id="total-workouts">24</span>
+                        <span class="label">WORKOUTS</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-road"></i>
+                        <span class="value" id="total-distance">42.5</span>
+                        <span class="label">KM</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-fire"></i>
+                        <span class="value" id="total-calories">8,450</span>
+                        <span class="label">CALORIES</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <span class="value" id="total-time">18.5</span>
+                        <span class="label">HOURS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Screen -->
+        <div class="screen" id="workout-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <h1 class="app-title">Workouts</h1>
+                    <div class="header-actions">
+                        <i class="fas fa-plus header-icon" id="add-workout"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="workout-screen">
+                <div class="workout-category">
+                    <h2 class="section-title">Cardio</h2>
+                    <div class="workout-list">
+                        <div class="workout-item" data-workout-type="running">
+                            <i class="fas fa-running workout-item-icon"></i>
+                            <div class="workout-item-content">
+                                <h3 class="workout-item-title">Running</h3>
+                                <p class="workout-item-desc">Outdoor running and jogging</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="workout-item" data-workout-type="cycling">
+                            <i class="fas fa-bicycle workout-item-icon"></i>
+                            <div class="workout-item-content">
+                                <h3 class="workout-item-title">Cycling</h3>
+                                <p class="workout-item-desc">Indoor and outdoor cycling</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="workout-item" data-workout-type="swimming">
+                            <i class="fas fa-swimmer workout-item-icon"></i>
+                            <div class="workout-item-content">
+                                <h3 class="workout-item-title">Swimming</h3>
+                                <p class="workout-item-desc">Pool and open water swimming</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="workout-category">
+                    <h2 class="section-title">Strength</h2>
+                    <div class="workout-list">
+                        <div class="workout-item" data-workout-type="weightlifting">
+                            <i class="fas fa-dumbbell workout-item-icon"></i>
+                            <div class="workout-item-content">
+                                <h3 class="workout-item-title">Weightlifting</h3>
+                                <p class="workout-item-desc">Free weights and machines</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="workout-item" data-workout-type="bodyweight">
+                            <i class="fas fa-user workout-item-icon"></i>
+                            <div class="workout-item-content">
+                                <h3 class="workout-item-title">Bodyweight</h3>
+                                <p class="workout-item-desc">Calisthenics and body exercises</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div class="screen" id="settings-screen">
+            <div class="app-header">
+                <div class="header-content">
+                    <h1 class="app-title">Settings</h1>
+                    <div class="header-actions">
+                        <i class="fas fa-save header-icon" id="save-settings"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-screen">
+                <div class="settings-section">
+                    <h2 class="section-title">Preferences</h2>
+                    <div class="settings-item">
+                        <div class="settings-item-content">
+                            <i class="fas fa-bell settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Notifications</h3>
+                                <p>Workout reminders and achievements</p>
+                            </div>
+                        </div>
+                        <div class="toggle-switch" id="notifications-toggle"></div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-content">
+                            <i class="fas fa-moon settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Dark Mode</h3>
+                                <p>Use dark theme interface</p>
+                            </div>
+                        </div>
+                        <div class="toggle-switch active" id="dark-mode-toggle"></div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-content">
+                            <i class="fas fa-tachometer-alt settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Auto-pause</h3>
+                                <p>Pause workout when inactive</p>
+                            </div>
+                        </div>
+                        <div class="toggle-switch" id="auto-pause-toggle"></div>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h2 class="section-title">Goals</h2>
+                    <div class="settings-item" id="daily-steps-goal">
+                        <div class="settings-item-content">
+                            <i class="fas fa-walking settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Daily Steps</h3>
+                                <p>Current goal: 10,000 steps</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item" id="weekly-workouts-goal">
+                        <div class="settings-item-content">
+                            <i class="fas fa-dumbbell settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Weekly Workouts</h3>
+                                <p>Current goal: 5 workouts</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h2 class="section-title">Account</h2>
+                    <div class="settings-item" id="edit-profile">
+                        <div class="settings-item-content">
+                            <i class="fas fa-user-edit settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Edit Profile</h3>
+                                <p>Update personal information</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item" id="privacy-settings">
+                        <div class="settings-item-content">
+                            <i class="fas fa-shield-alt settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Privacy</h3>
+                                <p>Manage data sharing</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item" id="help-support">
+                        <div class="settings-item-content">
+                            <i class="fas fa-question-circle settings-item-icon"></i>
+                            <div class="settings-item-text">
+                                <h3>Help & Support</h3>
+                                <p>Get help with the app</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-screen="home-screen">
+                <i class="fas fa-home nav-icon"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-screen="stats-screen">
+                <i class="fas fa-chart-line nav-icon"></i>
+                <span>Stats</span>
+            </div>
+            <div class="nav-item" data-screen="workout-screen">
+                <i class="fas fa-dumbbell nav-icon"></i>
+                <span>Workout</span>
+            </div>
+            <div class="nav-item" data-screen="settings-screen">
+                <i class="fas fa-cog nav-icon"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <div id="notification-message">Notification message</div>
+        </div>
+
+        <!-- Workout Modal -->
+        <div class="modal" id="workout-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="workout-modal-title">Start Workout</h2>
+                    <i class="fas fa-times modal-close" id="close-workout-modal"></i>
+                </div>
+                <div id="workout-modal-content">
+                    <!-- Workout content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+       
+    </script>
+</body>
+</html>
