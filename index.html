@@ -1449,11 +1449,16 @@
                 margin-top: 2rem;
             }
             
-            nav .fa-bars, nav .fa-xmark {
+            nav .fa-bars {
                 display: block;
                 font-size: 1.5rem;
                 cursor: pointer;
                 z-index: 1001;
+            }
+            nav .fa-xmark{
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1000;
             }
             
             nav .fa-xmark {
@@ -1461,7 +1466,7 @@
                 top: 2rem;
                 right: 2rem;
             }
-        }
+        
 
         @media (max-width: 576px) {
             .section-title {
@@ -1518,7 +1523,7 @@
                 align-items:center ; justify-content: center;">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
             <i class="fas fa-bars"></i>
-            <i class="fas fa-xmark" style="display:none"></i>
+            <i class="fas fa-xmark" style="display: transparent; background : transparent; background-color:transparent></i>
         </nav>
 
         <!-- Hero Section -->
